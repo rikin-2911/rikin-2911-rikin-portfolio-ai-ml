@@ -2,7 +2,7 @@ import { Download, FolderGit2, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TypingText from "@/components/effects/TypingText";
 import InteractiveTerminal from "@/components/effects/InteractiveTerminal";
-import rikin from "@/assets/rikin.jpg";
+import rikin from "@/assets/11.jpeg";
 
 const Hero = () => {
   return (

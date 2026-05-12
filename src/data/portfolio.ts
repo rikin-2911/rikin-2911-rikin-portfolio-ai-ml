@@ -13,21 +13,21 @@ export const education = [
   {
     degree: "B.Sc (Honours) in  Data Science & Artificial Intelligence",
     institution: "Indian Institute of Technology — Guwahati (IIT-Guwahati)",
-    period: "Ongoing",
+    period: "2023 - 2027",
     cpi: "7.53 / 10",
     color: "blue" as const,
   },
   {
     degree: "BE/BTech in Mechanical Engineering",
     institution: "Government Engineering College — Gandhinagar (GEC-GN)",
-    period: "Ongoing",
+    period: "2023 - 2027",
     cpi: "8.52 / 10",
     color: "violet" as const,
   },
   {
     degree: "Minor in Internet of Things (IoT)",
     institution: "Government Engineering College — Gandhinagar (GEC-GN)",
-    period: "Ongoing - Minor Degree",
+    period: "2024-2026 (Minor Degree)",
     cpi: "9.00 / 10",
     color: "blue" as const,
   },
@@ -168,8 +168,8 @@ export const skills = [
     color: "red" as const,
   },
   {
-    group: "Machine Learning",
-    items: ["Feature Engineering", "Scikit-learn", "Random Forest", "XGBoost", "SVM", "Time-Series Modelling"],
+    group: "Machine Learning and Data Science",
+    items: ["Linear and Logistic Regression", "Multi-Class Classification", "Feature Engineering", "EDA", "Scikit-learn", "Random Forest", "XGBoost","LightGBM", "SVM", "Time-Series Modelling and Analysis"],
     color: "blue" as const,
   },
   {
