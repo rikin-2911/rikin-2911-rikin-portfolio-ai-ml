@@ -2,6 +2,7 @@ import { Github } from "lucide-react";
 import { projects } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 import { useInView } from "@/hooks/useInView";
+import NeuralPulse from "@/components/effects/NeuralPulse";
 
 const Projects = () => {
   const { ref, inView } = useInView<HTMLDivElement>();
@@ -67,6 +68,16 @@ const Projects = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-10 reveal in-view">
+          <p className="font-mono text-xs text-neon-blue/80 mb-3">
+            <span className="text-neon-red">$</span> model.train() -- incoming projects queue
+          </p>
+          <NeuralPulse />
+          <p className="font-mono text-[11px] text-foreground/65 mt-2 text-center">
+            More AI/ML systems are actively training and coming soon.
+          </p>
         </div>
       </div>
     </section>

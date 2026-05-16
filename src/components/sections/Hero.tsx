@@ -2,6 +2,7 @@ import { Download, FolderGit2, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TypingText from "@/components/effects/TypingText";
 import InteractiveTerminal from "@/components/effects/InteractiveTerminal";
+import ArchSphereNavigator from "@/components/effects/ArchSphereNavigator";
 import rikin from "@/assets/11.jpeg";
 
 const Hero = () => {
@@ -86,14 +87,25 @@ const Hero = () => {
 
       {/* Terminal showcase */}
       <div className="max-w-6xl mx-auto mt-16">
-        <p className="font-mono text-xs text-neon-blue/80 mb-2">
-          <span className="text-neon-red">$</span> live shell — try{" "}
-          <span className="text-neon-violet">help</span>,{" "}
-          <span className="text-neon-violet">whoami</span>,{" "}
-          <span className="text-neon-violet">projects</span>
-        </p>
-        <InteractiveTerminal />
+        <div className="grid xl:grid-cols-[1.5fr_0.8fr] gap-6 items-start">
+          <div>
+            <p className="font-mono text-xs text-neon-blue/80 mb-2">
+              <span className="text-neon-red">$</span> live shell — try{" "}
+              <span className="text-neon-violet">help</span>,{" "}
+              <span className="text-neon-violet">whoami</span>,{" "}
+              <span className="text-neon-violet">projects</span>
+            </p>
+            <InteractiveTerminal />
+          </div>
+          <div className="glass-card rounded-2xl p-4 md:p-5 border border-neon-blue/20">
+            <p className="font-mono text-xs text-neon-blue/80 mb-3">
+              <span className="text-neon-red">$</span> arch-map --sections
+            </p>
+            <ArchSphereNavigator />
+          </div>
+        </div>
       </div>
+
     </section>
   );
 };

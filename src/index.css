@@ -130,6 +130,240 @@
 
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
   .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  .arch-sphere-shell {
+    @apply relative flex flex-col items-center gap-3;
+  }
+
+  .arch-sphere-aurora {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle at 30% 25%, hsl(135 88% 39% / 0.36), transparent 50%),
+      radial-gradient(circle at 72% 72%, hsl(150 76% 28% / 0.32), transparent 52%),
+      radial-gradient(circle at 55% 35%, hsl(168 84% 36% / 0.24), transparent 48%);
+    filter: blur(14px);
+    animation: sphereAurora 7s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  .arch-sphere {
+    position: relative;
+    width: min(280px, 85vw);
+    aspect-ratio: 1 / 1;
+    border-radius: 9999px;
+    border: 1px solid hsl(144 85% 42% / 0.4);
+    background:
+      radial-gradient(circle at 24% 28%, hsl(134 92% 42% / 0.19), transparent 42%),
+      radial-gradient(circle at 68% 74%, hsl(152 84% 30% / 0.16), transparent 46%),
+      linear-gradient(160deg, hsl(178 36% 8% / 0.94), hsl(132 42% 5% / 0.94));
+    box-shadow:
+      inset -24px -30px 56px hsl(0 0% 0% / 0.45),
+      inset 22px 18px 48px hsl(140 100% 45% / 0.14),
+      0 0 45px hsl(140 100% 45% / 0.24);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: perspective(920px) rotateX(17deg);
+    will-change: transform;
+  }
+
+  .arch-sphere-grid {
+    position: absolute;
+    inset: -8%;
+    border-radius: 9999px;
+    background-image:
+      repeating-linear-gradient(0deg, hsl(132 88% 40% / 0.2) 0 1px, transparent 1px 16px),
+      repeating-linear-gradient(90deg, hsl(152 90% 30% / 0.15) 0 1px, transparent 1px 18px);
+    transform: rotate(16deg);
+    mix-blend-mode: screen;
+    opacity: 0.45;
+    animation: sphereGridFlow 8s linear infinite;
+  }
+
+  .arch-sphere-links {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px hsl(142 100% 48% / 0.3));
+  }
+
+  .arch-sphere-link-line {
+    stroke: hsl(144 90% 60% / 0.65);
+    stroke-width: 0.5;
+    stroke-dasharray: 2 2;
+    animation: globeLinePulse 2.8s ease-in-out infinite;
+  }
+
+  .arch-sphere::before,
+  .arch-sphere::after {
+    content: "";
+    position: absolute;
+    inset: -6%;
+    border-radius: 9999px;
+    pointer-events: none;
+  }
+
+  .arch-sphere::before {
+    background:
+      repeating-radial-gradient(
+        circle at 34% 36%,
+        hsl(146 100% 58% / 0.15) 0 3px,
+        transparent 3px 16px
+      );
+    filter: blur(0.4px);
+    animation: sphereDiffusion 5.4s linear infinite;
+    mix-blend-mode: screen;
+  }
+
+  .arch-sphere::after {
+    background:
+      linear-gradient(
+        100deg,
+        transparent 5%,
+        hsl(162 100% 70% / 0.18) 28%,
+        transparent 50%,
+        hsl(138 100% 58% / 0.2) 72%,
+        transparent 95%
+      );
+    animation: sphereWaveTravel 3.6s ease-in-out infinite;
+    mix-blend-mode: screen;
+  }
+
+  .arch-sphere-dot {
+    @apply absolute rounded-full border transition-all duration-300;
+    transform: translate(-50%, -50%);
+    border-color: hsl(var(--neon-red) / 0.55);
+    background: hsl(var(--neon-red) / 0.74);
+    box-shadow: 0 0 12px hsl(var(--neon-red) / 0.68);
+    z-index: 2;
+  }
+
+  .arch-sphere-dot-back {
+    filter: saturate(0.7);
+  }
+
+  .arch-sphere-dot-front:hover {
+    border-color: hsl(162 95% 66% / 0.8);
+    background: hsl(146 94% 56% / 0.8);
+    box-shadow: 0 0 18px hsl(145 100% 52% / 0.78);
+  }
+
+  .arch-sphere-tooltip {
+    @apply absolute px-2 py-1 rounded-md font-mono text-[10px] pointer-events-none;
+    left: 50%;
+    bottom: calc(100% + 6px);
+    transform: translate(-50%, 4px);
+    white-space: nowrap;
+    background: hsl(var(--card) / 0.96);
+    border: 1px solid hsl(var(--neon-blue) / 0.35);
+    color: hsl(var(--foreground));
+    opacity: 0;
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .arch-sphere-dot:hover .arch-sphere-tooltip {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  .arch-sphere-hint {
+    @apply font-mono text-xs text-neon-blue/80;
+  }
+
+  .neural-shell {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    min-height: 220px;
+    border-radius: 16px;
+    border: 1px solid hsl(16 100% 47% / 0.35);
+    background:
+      radial-gradient(circle at 30% 18%, hsl(12 100% 50% / 0.14), transparent 50%),
+      radial-gradient(circle at 70% 78%, hsl(36 100% 52% / 0.12), transparent 52%),
+      linear-gradient(170deg, hsl(0 0% 2% / 1), hsl(0 0% 0% / 1));
+    overflow: hidden;
+    margin-inline: auto;
+  }
+
+  .neural-shell-project {
+    max-width: 560px;
+    min-height: 170px;
+  }
+
+  .neural-heading {
+    @apply absolute top-3 left-4 z-10 font-mono text-xs;
+    color: hsl(33 100% 68%);
+    text-shadow: 0 0 12px hsl(24 100% 50% / 0.5);
+  }
+
+  .neural-svg {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    display: block;
+    padding: 16px 14px 12px;
+  }
+
+  .neural-shell-project .neural-svg {
+    min-height: 170px;
+    padding: 14px 12px 14px;
+  }
+
+  .neural-link {
+    stroke: url(#neural-line);
+    stroke-width: 0.34;
+    opacity: 0.6;
+    stroke-dasharray: 3 4;
+    animation: linkPulse 2.9s ease-in-out infinite;
+    transition: stroke-width 180ms ease, opacity 180ms ease;
+  }
+
+  .neural-node {
+    fill: hsl(25 100% 58%);
+    opacity: 0.82;
+    filter: drop-shadow(0 0 7px hsl(20 100% 54% / 0.8));
+    animation: nodeBlink 2.3s ease-in-out infinite;
+  }
+
+  .neural-node-hidden {
+    fill: hsl(var(--neon-red));
+    filter: drop-shadow(0 0 8px hsl(var(--neon-red) / 0.86));
+  }
+
+  .neural-node-io {
+    fill: hsl(28 100% 56%);
+    filter: drop-shadow(0 0 8px hsl(28 100% 56% / 0.78));
+  }
+
+  .neural-node-violet {
+    fill: hsl(var(--neon-violet));
+    filter: drop-shadow(0 0 8px hsl(var(--neon-violet) / 0.85));
+  }
+
+  .neural-scanline {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, hsl(14 100% 54% / 0.11) 50%, transparent 100%);
+    transform: translateY(-100%);
+    animation: neuralScan 3.5s linear infinite;
+    pointer-events: none;
+  }
+
+  .neural-labels {
+    @apply absolute bottom-3 left-4 right-4 flex justify-between font-mono text-[10px];
+    color: hsl(24 96% 64% / 0.86);
+  }
+
+  .neural-transformer-labels {
+    @apply text-[9px];
+    gap: 6px;
+  }
+
 }
 
 @layer utilities {
@@ -139,4 +373,57 @@
     background-clip: text;
     color: transparent;
   }
+}
+
+@keyframes sphereRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sphereRotateAxis {
+  from { transform: perspective(920px) rotateX(19deg) rotateY(0deg); }
+  to { transform: perspective(920px) rotateX(19deg) rotateY(360deg); }
+}
+
+@keyframes sphereGridFlow {
+  from { transform: rotate(16deg) translateX(0); }
+  to { transform: rotate(16deg) translateX(-18px); }
+}
+
+@keyframes sphereDiffusion {
+  0% { transform: scale(0.95) rotate(0deg); opacity: 0.3; }
+  50% { transform: scale(1.03) rotate(180deg); opacity: 0.65; }
+  100% { transform: scale(1.1) rotate(360deg); opacity: 0.22; }
+}
+
+@keyframes sphereWaveTravel {
+  0% { transform: translateX(-35%) rotate(0deg); opacity: 0.15; }
+  45% { transform: translateX(4%) rotate(8deg); opacity: 0.5; }
+  100% { transform: translateX(38%) rotate(12deg); opacity: 0.08; }
+}
+
+@keyframes globeLinePulse {
+  0%, 100% { opacity: 0.24; }
+  50% { opacity: 0.72; }
+}
+
+
+@keyframes sphereAurora {
+  from { transform: scale(0.94); opacity: 0.7; }
+  to { transform: scale(1.06); opacity: 1; }
+}
+
+@keyframes linkPulse {
+  0%, 100% { opacity: 0.28; }
+  45% { opacity: 0.82; }
+}
+
+@keyframes nodeBlink {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  40% { opacity: 1; transform: scale(1.12); }
+}
+
+@keyframes neuralScan {
+  from { transform: translateY(-110%); }
+  to { transform: translateY(115%); }
 }
