@@ -12,21 +12,21 @@ export const navLinks = [
 export const education = [
   {
     degree: "B.Sc (Honours) in  Data Science & Artificial Intelligence",
-    institution: "Indian Institute of Technology — Guwahati (IIT-Guwahati)",
+    institution: "Indian Institute of Technology - Guwahati (IIT-Guwahati)",
     period: "2023 - 2027",
-    cpi: "7.53 / 10",
+    cpi: "7.65 / 10",
     color: "blue" as const,
   },
   {
     degree: "BE/BTech in Mechanical Engineering",
-    institution: "Government Engineering College — Gandhinagar (GEC-GN)",
+    institution: "Government Engineering College - Gandhinagar (GEC-GN)",
     period: "2023 - 2027",
     cpi: "8.52 / 10",
     color: "violet" as const,
   },
   {
     degree: "Minor in Internet of Things (IoT)",
-    institution: "Government Engineering College — Gandhinagar (GEC-GN)",
+    institution: "Government Engineering College - Gandhinagar (GEC-GN)",
     period: "2024-2026 (Minor Degree)",
     cpi: "9.00 / 10",
     color: "blue" as const,
