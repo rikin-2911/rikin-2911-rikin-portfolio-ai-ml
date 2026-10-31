@@ -11,25 +11,25 @@ export const navLinks = [
 
 export const education = [
   {
-    degree: "B.Sc (Honours) in  Data Science & Artificial Intelligence",
+    degree: "B.S (Honours) in Data Science & Artificial Intelligence",
     institution: "Indian Institute of Technology - Guwahati (IIT-Guwahati)",
     period: "2023 - 2027",
-    cpi: "7.65 / 10",
-    color: "blue" as const,
+    cpi: "7.75 / 10.00",
+    color: "red" as const,
   },
   {
     degree: "BE/BTech in Mechanical Engineering",
     institution: "Government Engineering College - Gandhinagar (GEC-GN)",
     period: "2023 - 2027",
-    cpi: "8.52 / 10",
-    color: "violet" as const,
+    cpi: "7.97 / 10.00",
+    color: "blue" as const,
   },
   {
     degree: "Minor in Internet of Things (IoT)",
     institution: "Government Engineering College - Gandhinagar (GEC-GN)",
     period: "2024-2026 (Minor Degree)",
-    cpi: "9.00 / 10",
-    color: "blue" as const,
+    cpi: "10.00 / 10.00",
+    color: "violet" as const,
   },
 ];
 
@@ -39,7 +39,7 @@ export const experiences = [
   {
     role: "Research Intern",
     company: "Indian Institute of Technology — Gandhinagar (IIT Gandhinagar)",
-    period: "May 2026 - Ongoing",
+    period: "May 2026 - July 2026",
     color: "red" as const,
     logo: "IITGN.png",
     initials: "IIT",
@@ -66,7 +66,7 @@ export const experiences = [
       "Focused on intelligent decision systems and real-time inference pipelines",
       "Prototyped sensor fusion and embedded ML deployment workflows",
     ],
-    stack: ["Robotics", "Computer Vision", "YOLO", "IoT", "Edge AI", "Real-time Inference"],
+    stack: ["Robotics", "Computer Vision", "YOLO", "IoT", "Edge AI", "Real-time On-Device Inference"],
   },
   {
     role: "AI Engineer Intern",
@@ -102,6 +102,13 @@ export const responsibilities = [
 ];
 
 export const projects = [
+  {
+  title: "Agentic CAD System - Natural Language to 3D Design",
+  description:
+    "Built an agentic CAD system that converts natural language prompts into validated 3D models using LLM-powered tool orchestration. Integrated a custom MCP server with CadQuery for geometry creation, Boolean operations, fillets, chamfers and STEP/STL exports. Evaluated using LangSmith with ~90% task success rate and 52.46s average end-to-end latency.",
+  stack: ["LangChain", "LangGraph", "MCP", "FastAPI", "CadQuery", "Groq", "Pinecone", "LangSmith", "LLMOps", "LLM Evals"],
+  href: "https://github.com/rikin-2911/agentic-cad",
+  },
   {
     title: "Generative AI Text Generation System - HTS'25 Hackathon",
     description:
@@ -154,6 +161,11 @@ export const projects = [
 ];
 
 export const achievements = [
+  {
+  tag: "2ND PLACE",
+  color: "violet" as const,
+  text: "Team Leader - GTU Poster Presentation - Secured 2nd Place among 100 teams for YANTRA-VEDA, an AI and Quantum Optimization Research Project",
+},
   { tag: "WINNER", color: "red" as const, text: "Team Leader - Ideathon'25 Winner (GEC-GN) - Built Agentic AI based Prototype for Government documentation analysis" },
   { tag: "TOP10", color: "blue" as const, text: "Team Leader - Hack The Spring'25 — Built Generative AI and NLP based system" },
   { tag: "FINALIST", color: "violet" as const, text: "Team Leader - XENESIS Hackathon — Coding related problem solving comptetion" },
@@ -173,9 +185,47 @@ export const skills = [
     color: "blue" as const,
   },
   {
+  group: "MLOps",
+  items: [
+    "PyTorch",
+    "TensorFlow",
+    "ML Model Deployment",
+    "FastAPI",
+    "Docker",
+    "MLflow",
+    "Model Versioning",
+    "Experiment Tracking",
+    "CI/CD Pipelines",
+    "Model Monitoring",
+    "Data and Model Pipelines",
+    "ONNX",
+    "Production Model Optimization"
+  ],
+  color: "violet" as const,
+  },
+  {
     group: "Generative AI and Agentic AI",
     items: ["LangChain", "LangGraph", "RAG", "MCP", "LLMs", "Prompt Engineering", "Pinecone Vector Database", "FAISS", "Chroma", "HuggingFace Models"],
     color: "red" as const,
+  },
+  {
+  group: "LLMOps",
+  items: [
+    "LangSmith",
+    "LLM Evaluation and Observability",
+    "Prompt Engineering",
+    "RAG Pipeline Optimization",
+    "Agentic Workflow Orchestration",
+    "MCP (Model Context Protocol)",
+    "LLM Tracing and Monitoring",
+    "Latency and Token Usage Optimization",
+    "Vector Database Management",
+    "Hugging Face",
+    "vLLM",
+    "LoRA and QLoRA",
+    "Model Quantization"
+  ],
+  color: "blue" as const,
   },
   {
     group: "Deep Learning",
@@ -185,12 +235,12 @@ export const skills = [
   {
     group: "Backend & Deployment",
     items: ["FastAPI", "Docker", "Streamlit", "Git", "GitHub"],
-    color: "blue" as const,
+    color: "red" as const,
   },
   {
     group: "Soft Skills",
     items: ["Problem Solving", "Leadership", "Communication", "Analytical Thinking", "Team Collaboration", "Adaptability", "Critical Thinking"],
-    color: "violet" as const,
+    color: "blue" as const,
   },
 ];
 
