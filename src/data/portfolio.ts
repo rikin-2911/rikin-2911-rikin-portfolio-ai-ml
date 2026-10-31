@@ -37,7 +37,7 @@ export const focusAreas = ["AI/ML Research", "AI Engineering", "Applied Machine 
 
 export const experiences = [
   {
-    role: "Research Intern",
+    role: "Machine Learning Research Intern",
     company: "Indian Institute of Technology — Gandhinagar (IIT Gandhinagar)",
     period: "May 2026 - July 2026",
     color: "red" as const,
